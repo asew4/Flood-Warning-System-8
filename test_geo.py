@@ -9,3 +9,5 @@ def test_stationsbydistance():
     station_distance = stations_by_distance(stations, (52,0.1))
     assert sorted_by_key(station_distance, 1) == station_distance
     assert isinstance(station_distance[0][1],float)
+
+#Test for stations_within_radius function (Task 1C)
