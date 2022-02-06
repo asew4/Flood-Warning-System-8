@@ -6,9 +6,29 @@ for manipulating/modifying station data
 
 """
 
+##Task 1F
+def inconsistant_typical_range_stations(stations):
+    inconsistant_stations = []
+    for station in stations:
+        if MonitoringStation.typical_range_consistant(station) == False:
+            inconsistant_stations += [station.name]
+        else:
+            pass
+    
+    return inconsistant_stations
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
+
+    def typical_range_consistant(self):
+        ##Task 1F
+        if self.typical_range is None:
+            return False
+        elif self.typical_range[1] < self.typical_range[0]:
+            return False 
+        else:
+            return True
+
 
     def __init__(self, station_id, measure_id, label, coord, typical_range,
                  river, town):
@@ -38,3 +58,6 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+
+
