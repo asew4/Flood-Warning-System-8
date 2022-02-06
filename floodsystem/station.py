@@ -10,9 +10,8 @@ for manipulating/modifying station data
 def inconsistant_typical_range_stations(stations):
     inconsistant_stations = []
     for station in stations:
-    
-        if typical_range_consistant(station) == False:
-            inconsistant_stations += [station]
+        if MonitoringStation.typical_range_consistant(station) == False:
+            inconsistant_stations += [station.name]
         else:
             pass
     
@@ -59,3 +58,6 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+
+

@@ -71,7 +71,7 @@ def rivers_by_station_number(stations, N):
     
     large = sorted_rivers_with_stations[:N]
 
-    for river in sorted_rivers_with_stations:
+    for river in sorted_rivers_with_stations[N:]:
         nth_river = large[N-1]
         if river[1] == nth_river[1]:
             large += [river]
