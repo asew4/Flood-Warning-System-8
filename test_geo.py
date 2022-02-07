@@ -13,9 +13,9 @@ def test_stationsbydistance():
 from floodsystem.geo import stations_within_radius
 from floodsystem.station import MonitoringStation
 
-#def test_stationswithinradius():
-#    stations = build_station_list()
-#    station_distance = stations_within_radius(stations, (52.2053, 0.1218), 10)
+def test_stationswithinradius():
+    stations = build_station_list()
+    station_distance = stations_within_radius(stations, (52.2053, 0.1218), 10)
 #    assert isinstance(station_distance[0],MonitoringStation)
 
 
