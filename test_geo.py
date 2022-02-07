@@ -39,10 +39,10 @@ def test_stations_by_river():
 ##Task 1E Tests
 #sample_data = [ ('River Great Ouse', 30), ('River Derwent', 25), ('River Thames', 55), ('River Avon', 31), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18)]
 
-def test_rivers_by_station_number():
-    stations = build_station_list()
-    function_test = rivers_by_station_number(stations,1)
-    assert ('River Thames',55) in function_test
+#def test_rivers_by_station_number():
+#    stations = build_station_list()
+#    function_test = rivers_by_station_number(stations,1)
+#    assert ('River Thames',55) in function_test
 
 
 
