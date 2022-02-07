@@ -15,7 +15,6 @@ from . import datafetcher
 #Task 1B
 def stations_by_distance(stations, p):
     #Function to sort list of stations and their distance from a coordinate sorted by increasing distance
-    stations = build_station_list()
     names = []
     distance = []
     for station in stations:
