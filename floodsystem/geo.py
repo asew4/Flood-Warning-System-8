@@ -9,7 +9,6 @@ geographical data.
 from sqlalchemy import LargeBinary
 from .utils import sorted_by_key  # noqa
 from haversine import haversine
-from floodsystem.stationdata import build_station_list
 from .station import MonitoringStation
 from . import datafetcher
 #Task 1B
@@ -26,7 +25,6 @@ def stations_by_distance(stations, p):
 #Task 1C
 def stations_within_radius(stations, centre, r):
     #Function to name the stations that are within a radius, r, of a coordinate centre.
-    stations = build_station_list()
     names =[]
     for station in stations:
         if haversine(centre, station.coord) <= r:
