@@ -13,10 +13,10 @@ def test_stationsbydistance():
 from floodsystem.geo import stations_within_radius
 from floodsystem.station import MonitoringStation
 
-def test_stationswithinradius():
-    stations = build_station_list()
-    station_distance = stations_within_radius(stations, (52.2053, 0.1218), 10)
-    assert isinstance(station_distance[0],MonitoringStation)
+#def test_stationswithinradius():
+#    stations = build_station_list()
+#    station_distance = stations_within_radius(stations, (52.2053, 0.1218), 10)
+#    assert isinstance(station_distance[0],MonitoringStation)
 
 
 
@@ -42,6 +42,6 @@ def test_stations_by_river():
 def test_rivers_by_station_number():
     stations = build_station_list()
     function_test = rivers_by_station_number(stations,1)
-    assert "River Thames" in function_test
+    assert ('River Thames',55) in function_test
 
 
