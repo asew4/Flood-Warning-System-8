@@ -20,16 +20,65 @@ def test_stationswithinradius():
 
 
 
-
 ##Task 1D Tests
 from floodsystem.geo import *
+
+def test_river_by_station_number():
+    station1 = MonitoringStation(station_id='stat1',
+                                 river='riv1',
+                                 measure_id='test_measure_id_1',
+                                 label=' Station 1',
+                                 coord=(4., 5.),
+                                 typical_range=(0., 1.),
+                                 town='town1')
+    station2 = MonitoringStation(station_id='stat2',
+                                 measure_id='test_measure_id_1',
+                                 label=' Station 1',
+                                 coord=(4., 5.),
+                                 typical_range=(0., 1.),
+                                 river='riv1',
+                                 town='town2')
+    station3 = MonitoringStation(station_id='stat3',
+                                 measure_id='test_measure_id_1',
+                                 label=' Station 1',
+                                 coord=(4., 5.),
+                                 typical_range=(0., 1.),
+                                 river='riv3',
+                                 town='town3')
+    stations = [station1, station2, station3]
+    function_test = rivers_by_station_number(stations,1)
+    assert ('riv1',2) in function_test
+
 def test_rivers_with_stations():
-    stations = build_station_list()
+    station1 = MonitoringStation(station_id='stat1',
+                                 measure_id='test_measure_id_1',
+                                 label=' Station 1',
+                                 coord=(4., 5.),
+                                 typical_range=(0., 1.),
+                                 river='riv1',
+                                 town='town1')
+    station2 = MonitoringStation(station_id='stat2',
+                                 measure_id='test_measure_id_2',
+                                 label=' Station 2',
+                                 coord=(49., 35.),
+                                 typical_range=(0., 1.),
+                                 river='riv2',
+                                 town='town2')
+    station3 = MonitoringStation(station_id='stat3',
+                                 measure_id='test_measure_id_3',
+                                 label=' Station 3',
+                                 coord=(4., 5.),
+                                 typical_range=(0., 1.),
+                                 river='riv3',
+                                 town='town3')
+    stations = [station1, station2, station3]
     function_test = rivers_with_stations(stations)
-    assert "River Thames" in function_test
+    assert "riv2" in function_test
+    assert len(function_test) == 3
 
 
 def test_stations_by_river():
+
     stations = build_station_list()
     function_test = stations_by_river(stations)
     assert "River Tees" in function_test
