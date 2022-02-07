@@ -1,4 +1,3 @@
-
 #Test for stations_by_distance function (Task 1B)
 from floodsystem.geo import stations_by_distance
 from floodsystem.stationdata import build_station_list
@@ -24,10 +23,10 @@ def test_stationswithinradius():
 
 ##Task 1D Tests
 from floodsystem.geo import *
-def test_rivers_with_station():
+def test_rivers_with_stations():
     stations = build_station_list()
-    function_test = rivers_with_station(stations)
-    assert "Par River" in function_test
+    function_test = rivers_with_stations(stations)
+    assert "River Thames" in function_test
 
 
 def test_stations_by_river():
@@ -38,10 +37,10 @@ def test_stations_by_river():
 
 
 ##Task 1E Tests
-sample_data = [ ('River Great Ouse', 30), ('River Derwent', 25), ('River Thames', 55), ('River Avon', 31), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18)]
+#sample_data = [ ('River Great Ouse', 30), ('River Derwent', 25), ('River Thames', 55), ('River Avon', 31), ('River Aire', 24), ('River Calder', 23), ('River Severn', 21), ('River Stour', 21), ('River Ouse', 18), ('River Colne', 18)]
 
 def test_rivers_by_station_number():
-    stations = sample_data
+    stations = build_station_list()
     function_test = rivers_by_station_number(stations,1)
     assert "River Thames" in function_test
 
