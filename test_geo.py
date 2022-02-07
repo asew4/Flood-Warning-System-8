@@ -83,14 +83,16 @@ station7 = MonitoringStation(station_id='stat6',
                              river='riv6',
                              town='town6')                             
 
-##Task 1D Tests
+
 from floodsystem.geo import *
 
-def test_river_by_station_number():
+##Task1E
+def test_rivers_by_station_number():
     stations = [station1, station2, station3]
     function_test = rivers_by_station_number(stations,1)
     assert ('riv1', 2) in function_test
 
+##Task 1D Tests
 def test_rivers_with_stations():
     stations = [station1, station2, station3]
     function_test = rivers_with_stations(stations)
