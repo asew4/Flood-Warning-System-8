@@ -1,22 +1,37 @@
 #Test for stations_by_distance function (Task 1B)
+from cProfile import label
 from floodsystem.geo import stations_by_distance
-from floodsystem.stationdata import build_station_list
-from floodsystem.utils import sorted_by_key
+from floodsystem.station import MonitoringStation
+from haversine import haversine
 
 def test_stationsbydistance():
-    stations = build_station_list()
-    station_distance = stations_by_distance(stations, (52,0.1))
-    assert sorted_by_key(station_distance, 1) == station_distance
-    assert isinstance(station_distance[0][1],float)
+    #Create sample stations
+    
+    station_1 = MonitoringStation(label= 'Test Station 1', station_id= 'Test Station ID 1', measure_id= 'Test measure ID 1', coord= (0.0, 1.0), typical_range= (0.0,1.0), river= 'Test River 1', town= 'Test town 1')
+    station_2 = MonitoringStation(label= 'Test Station 2', station_id= 'Test Station ID 2', measure_id= 'Test measure ID 2', coord= (1.0, 1.0), typical_range= (1.0,1.0), river= 'Test River 2', town= 'Test town 2')
+    #Make a list of stations and sort
+    
+    stations = [station_1, station_2]
+    sorted_stations = stations_by_distance(stations, (1.0, 1.0))
+    assert sorted_stations[0] == ('Test Station 2', haversine((1.0,1.0),(1.0,1.0)))
+    assert sorted_stations[1] == ('Test Station 1', haversine((1.0,1.0),(0.0,1.0)))
+    
 
 #Test for stations_within_radius function (Task 1C)
 from floodsystem.geo import stations_within_radius
 from floodsystem.station import MonitoringStation
 
 def test_stationswithinradius():
-    stations = build_station_list()
-    station_distance = stations_within_radius(stations, (52.2053, 0.1218), 10)
-#    assert isinstance(station_distance[0],MonitoringStation)
+    #Create sample stations
+    station_1 = MonitoringStation(label= 'Test Station 1', station_id= 'Test Station ID 1', measure_id= 'Test measure ID 1', coord= (0.0, 1.0), typical_range= (0.0,1.0), river= 'Test River 1', town= 'Test town 1')
+    station_2 = MonitoringStation(label= 'Test Station 2', station_id= 'Test Station ID 2', measure_id= 'Test measure ID 2', coord= (1.0, 1.0), typical_range= (1.0,1.0), river= 'Test River 2', town= 'Test town 2')
+    station_3 = MonitoringStation(label= 'Test Station 3', station_id= 'Test Station ID 3', measure_id= 'Test measure ID 3', coord= (10.0, 10.0), typical_range= (0.0,1.0), river= 'Test River 3', town= 'Test town 3')
+    
+    stations = [station_1, station_2, station_3]
+    stations_withinradius = sorted(stations_within_radius(stations, (0.0,0.0), 200))
+    assert len(stations_withinradius) == 2
+    assert stations_withinradius[0] == "Test Station 1"
+    assert stations_withinradius[1] == "Test Station 2"
 
 station1 = MonitoringStation(station_id='stat1',
                              river='riv1',
