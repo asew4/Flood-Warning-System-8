@@ -35,20 +35,6 @@ jobs:
       - name: Run Deliverable 1 code
         run: |
           python Task1A.py
-<<<<<<< HEAD
-          
-=======
-<<<<<<< HEAD
-          python Task1B.py
-          python Task1C.py
-=======
-          python test_geo.py
-          python Task1D.py
-          python Task1E.py
-          python Task1F.py
->>>>>>> e1cebbb65a316c64fb5f83b226c2f97fce196cf7
-
->>>>>>> 7ab0face29adf2bd57f99e5591cd2637e9713752
 
       - name: Run Deliverable 2 code
         run: |
