@@ -1,10 +1,10 @@
 
-from floodsystem import flood, station, stationdata
+#from floodsystem import flood, station, stationdata
 from cProfile import label
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation
 from haversine import haversine
-
+from floodsystem.flood import *
 
 station1 = MonitoringStation(station_id='stat1',
                              river='riv1',
@@ -64,12 +64,12 @@ stations = [station1,station2,station3,station4]
 
 def test_stations_level_over_threshold():
     stations = [station1,station2,station3,station4]
-    assert flood.stations_level_over_threshold(stations,0.6) == [(station3, 7)]
-    assert flood.stations_level_over_threshold(stations,0.5) == [(station3, 0.7), (station2, 0.6)]
+    assert stations_level_over_threshold(stations,0.6) == [(station3.name, 0.7)]
+    assert stations_level_over_threshold(stations,0.5) == [(station3.name, 0.7), (station2.name, 0.6)]
 
 
 
 def test_stations_highest_rel_level():
-    assert stations_highest_rel_level(stations,3) == [station3, station2, station1]
-    assert stations_highest_rel_level(stations,2) == [station3, station2]
-    assert stations_highest_rel_level(stations,1) == [station3]
+    assert stations_highest_rel_level(stations,3) == [(station3.name,station3.relative_water_level()), (station2.name, station2.relative_water_level()), (station1.name, station1.relative_water_level())]
+    assert stations_highest_rel_level(stations,2) == [(station3.name,station3.relative_water_level()), (station2.name, station2.relative_water_level())]
+    assert stations_highest_rel_level(stations,1) == [(station3.name,station3.relative_water_level())]
