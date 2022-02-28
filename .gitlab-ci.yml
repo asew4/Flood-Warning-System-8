@@ -15,7 +15,12 @@ test:
   - python test_station.py
   - python test_station_data.py
   - python test_utils.py
+<<<<<<< HEAD
   - python test_analysis.py
+=======
+  - python test_flood.py
+
+>>>>>>> ed44b6e37b6b5297acc3935c04805eb04d8e8fd1
 
   # Run deliverables. Add your deliverables to the test system here.
   - python Task1A.py
@@ -26,3 +31,8 @@ test:
   - python Task1F.py
   - python Task2A.py
   - python Task2D.py
+  - python Task2B.py
+  - python Task2C.py
+  - python Task2E.py
+  - python Task2F.py
+  
