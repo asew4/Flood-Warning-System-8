@@ -31,8 +31,8 @@ def plot_water_levels(station, dates, levels):
     plt.show()
 
 def plot_water_level_with_fit(station, dates, levels, p):
-    x = matplotlib.dates.date2num(dates)
-    x1 = np.linspace(x[0], x[-1], 50)
+    x = matplotlib.dates.date2num(dates) #Converting dates into floats so can be used as function argument
+    x1 = np.linspace(x[0], x[-1], 50) #Plot polynomial fit at 50 points along interval
 
     #Defining values for upper and lower range for graph
     typical_range = station.typical_range
