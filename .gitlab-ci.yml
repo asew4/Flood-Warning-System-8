@@ -15,6 +15,7 @@ test:
   - python test_station.py
   - python test_station_data.py
   - python test_utils.py
+  - python test_analysis.py
 
   # Run deliverables. Add your deliverables to the test system here.
   - python Task1A.py
