@@ -9,10 +9,10 @@ high_level_station = []
 moderate_level_station = []
 low_level_station = []
 
-for station in stations:
+for station in stations: #Sorts out stations into different levels
     level = station.relative_water_level()
     if level is not None:
-        if level > 1.2:
+        if level > 1.2: 
             severe_level_station.append(station)
         elif level > 0.9:
             high_level_station.append(station)
@@ -20,7 +20,7 @@ for station in stations:
             moderate_level_station.append(station)
         else:
             low_level_station.append(station)
-
+    #sets for the different categories
     severe_town = {x.town for x in severe_level_station}
     high_town = {x.town for x in high_level_station}
     moderate_town = {x.town for x in moderate_level_station}
