@@ -27,5 +27,6 @@ for station in stations: #Sorts out stations into different levels
     low_town = {x.town for x in low_level_station}
 
 for town in severe_town:
+#xx
     print(town)
 
